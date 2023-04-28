@@ -1,0 +1,27 @@
+INDEX VERSION 1.132+C:\Users\Ítalo Ramon\eclipse-workspace\.metadata\.plugins\org.eclipse.jdt.core
+4293173328.index
+2822209965.index
+1810427964.index
+3576007631.index
+964539043.index
+3571488450.index
+1775994124.index
+360573420.index
+540325438.index
+1539442988.index
+3772198488.index
+883389731.index
+439938382.index
+2745329473.index
+887179358.index
+63157391.index
+2066117159.index
+249494503.index
+2842835170.index
+1209127827.index
+2161281746.index
+2530298142.index
+865445456.index
+2745812310.index
+3801907352.index
+1865797976.index

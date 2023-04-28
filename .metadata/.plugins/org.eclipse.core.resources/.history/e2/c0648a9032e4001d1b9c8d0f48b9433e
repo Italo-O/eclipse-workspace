@@ -1,0 +1,103 @@
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByClassName;
+import org.openqa.selenium.By.ByName;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Teste_de_cadastro_produtos {
+	private WebDriver driver;
+	
+	@Before
+	public void abrirNavegador() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\webdriver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+	}
+	
+	@Test
+	public void testeNavegador() {
+		driver.get("http://localhost:4200/inicio");
+		driver.findElement(By.id("login")).click();
+		driver.findElement(By.id("staticUsuario")).click();
+		driver.findElement(By.id("staticUsuario")).sendKeys("Admin");
+		driver.findElement(By.id("inputPassword2")).click();
+		driver.findElement(By.id("inputPassword2")).sendKeys("@admin");
+		driver.findElement(By.className("btn")).click();
+		driver.findElement(By.id("Cadastrar-Produtos")).click();
+		driver.findElement(By.name("produto")).click();
+		driver.findElement(By.name("produto")).sendKeys("FIFA 23 XBOX ONE");
+		driver.findElement(By.name("descricao")).click();
+		driver.findElement(By.name("descricao")).sendKeys("FIFA 23 Standard Edition Electronic Arts Xbox One Digital");
+		driver.findElement(By.name("foto")).click();
+		driver.findElement(By.name("foto")).sendKeys("fifa-23.jpg");
+		driver.findElement(By.name("preco")).click();
+		driver.findElement(By.name("preco")).clear();
+		driver.findElement(By.name("preco")).sendKeys("250");
+		driver.findElement(By.className("btn")).click();
+		// Espera até que o alert esteja presente
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.alertIsPresent());
+
+		// Seleciona o alert
+		Alert alert = driver.switchTo().alert();
+
+		// Confirma o alert
+		alert.accept();
+		
+		//Adicionar um segundo produto
+		
+		driver.findElement(By.id("Cadastrar-Produtos")).click();
+		driver.findElement(By.name("produto")).click();
+		driver.findElement(By.name("produto")).sendKeys("Counter-Strike: GO");
+		driver.findElement(By.name("descricao")).click();
+		driver.findElement(By.name("descricao")).sendKeys("CS:GO contém novos mapas, personagens e armas, além de contar com versões atualizadas de conteúdos do CS clássico (como de_dust etc.).");
+		driver.findElement(By.name("foto")).click();
+		driver.findElement(By.name("foto")).sendKeys("cs-go.jpg");
+		driver.findElement(By.name("preco")).click();
+		driver.findElement(By.name("preco")).clear();
+		driver.findElement(By.name("preco")).sendKeys("150");
+		driver.findElement(By.className("btn")).click();
+		
+		// Espera até que o alert esteja presente
+		WebDriverWait wait1 = new WebDriverWait(driver, 10);
+		wait1.until(ExpectedConditions.alertIsPresent());
+
+		// Seleciona o alert
+		Alert alert1 = driver.switchTo().alert();
+
+		// Confirma o alert
+		alert1.accept();
+		
+		//Adicionar um terceiro produto
+		
+		driver.findElement(By.id("Cadastrar-Produtos")).click();
+		driver.findElement(By.name("produto")).click();
+		driver.findElement(By.name("produto")).sendKeys("Sniper Elite 4");
+		driver.findElement(By.name("descricao")).click();
+		driver.findElement(By.name("descricao")).sendKeys("Aproveite horas de jogo emocionantes em enormes níveis da campanha, com centenas de inimigos, veículos e oficiais Nazistas de alta patente para caçar.");
+		driver.findElement(By.name("foto")).click();
+		driver.findElement(By.name("foto")).sendKeys("sniper-elite-4.jpg");
+		driver.findElement(By.name("preco")).click();
+		driver.findElement(By.name("preco")).clear();
+		driver.findElement(By.name("preco")).sendKeys("100");
+		driver.findElement(By.className("btn")).click();
+				
+		// Espera até que o alert esteja presente
+		WebDriverWait wait2 = new WebDriverWait(driver, 10);
+		wait2.until(ExpectedConditions.alertIsPresent());
+
+		// Seleciona o alert
+		Alert alert2 = driver.switchTo().alert();
+
+		// Confirma o alert
+		alert2.accept();
+		
+		
+	}
+}

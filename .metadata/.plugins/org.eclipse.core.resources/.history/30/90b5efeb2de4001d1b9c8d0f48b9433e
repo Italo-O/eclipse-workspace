@@ -1,0 +1,49 @@
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByClassName;
+import org.openqa.selenium.By.ByName;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Teste_de_cadastro_produtos {
+	private WebDriver driver;
+	
+	@Before
+	public void abrirNavegador() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\webdriver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+	}
+	
+	@Test
+	public void testeNavegador() {
+		driver.get("http://localhost:4200/inicio");
+		driver.findElement(By.id("login")).click();
+		driver.findElement(By.id("staticUsuario")).click();
+		driver.findElement(By.id("staticUsuario")).sendKeys("Admin");
+		driver.findElement(By.id("inputPassword2")).click();
+		driver.findElement(By.id("inputPassword2")).sendKeys("@admin");
+		driver.findElement(By.className("btn")).click();
+		driver.findElement(By.id("Cadastrar-Produtos")).click();
+		driver.findElement(By.name("produto")).click();
+		driver.findElement(By.name("produto")).sendKeys("FIFA 23 XBOX ONE");
+		driver.findElement(By.name("descricao")).click();
+		driver.findElement(By.name("descricao")).sendKeys("FIFA 23 Standard Edition Electronic Arts");
+		driver.findElement(By.name("foto")).click();
+		driver.findElement(By.name("foto")).sendKeys("fifa-23.jpg");
+		driver.findElement(By.name("preco")).click();
+		driver.findElement(By.name("preco")).clear();
+		driver.findElement(By.name("preco")).sendKeys("250");
+		driver.findElement(By.className("btn")).click();
+		WebDriver wait = (WebDriver) new WebDriverWait(driver, 10);
+		((FluentWait<WebDriver>) wait).until(ExpectedConditions.alertIsPresent());
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+		
+	}
+}
